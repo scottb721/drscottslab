@@ -1,141 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome To The Lab</title>
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      color:white;
-      background:
-        linear-gradient(rgba(7,10,18,0.86), rgba(7,10,18,0.92)),
-        url("lab-bg.jpg");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      min-height:100vh;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Scott's Lab</title>
 
-    .wrap{
-      max-width:1000px;
-      margin:0 auto;
-      padding:40px 20px 60px;
-      text-align:center;
-    }
+<style>
 
-    h1{
-      margin:0 0 10px;
-      font-size:3.4rem;
-    }
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+  text-align:center;
 
-    .sub{
-      font-size:1.2rem;
-      color:rgba(255,255,255,0.82);
-      margin-bottom:34px;
-    }
+  background-image:url("lab-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
 
-    .top-link{
-      display:inline-block;
-      margin-bottom:34px;
-      color:white;
-      text-decoration:none;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.18);
-      padding:12px 22px;
-      border-radius:12px;
-    }
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
-      gap:18px;
-      margin-top:10px;
-    }
+h1{
+  font-size:56px;
+  margin-bottom:10px;
+}
 
-    .card{
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.14);
-      border-radius:18px;
-      padding:24px 18px;
-      backdrop-filter:blur(6px);
-      box-shadow:0 8px 24px rgba(0,0,0,0.28);
-    }
+.subtitle{
+  font-size:20px;
+  opacity:0.85;
+  margin-bottom:50px;
+}
 
-    .card h2{
-      margin:0 0 10px;
-      font-size:1.25rem;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
+}
 
-    .card p{
-      margin:0 0 18px;
-      color:rgba(255,255,255,0.80);
-      line-height:1.5;
-      font-size:0.96rem;
-    }
+.card{
+  backdrop-filter: blur(12px);
+  background: rgba(30,40,60,0.6);
+  border-radius:20px;
+  padding:35px;
+}
 
-    .button{
-      display:inline-block;
-      padding:14px 24px;
-      background:#3b82f6;
-      color:white;
-      text-decoration:none;
-      border-radius:12px;
-      font-weight:bold;
-      transition:0.2s;
-    }
+.card h2{
+  margin-top:0;
+}
 
-    .button:hover{
-      background:#2563eb;
-    }
+.button{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 28px;
+  background:#3b82f6;
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    @media (max-width:768px){
-      body{
-        background-image:
-          linear-gradient(rgba(7,10,18,0.88), rgba(7,10,18,0.94)),
-          url("lab-bg-mobile.jpg");
-        background-position:center top;
-      }
+.button:hover{
+  background:#2563eb;
+}
 
-      .wrap{
-        padding:28px 16px 40px;
-      }
+/* dual button layout */
 
-      h1{
-        font-size:2.4rem;
-      }
+.dual-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
 
-      .sub{
-        font-size:1rem;
-        margin-bottom:24px;
-      }
-    }
-  </style>
+.button.half{
+  flex:1;
+}
+
+/* back button */
+
+.back{
+  display:inline-block;
+  margin-bottom:40px;
+  padding:10px 18px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.15);
+  text-decoration:none;
+  color:white;
+}
+
+.back:hover{
+  background:rgba(255,255,255,0.25);
+}
+
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <a class="top-link" href="index.html">← Back to Main Page</a>
 
-    <h1>Welcome To The Lab</h1>
-    <div class="sub">Links to cool shit.</div>
+<div class="container">
 
-    <div class="grid">
-      
+<a class="back" href="index.html">← Back to Main Page</a>
 
-      <div class="card">
-        <h2>Plex Seerr</h2>
-        <p>Link Your Plex Watchlist to Seerr.</p>
-        <a class="button" href="https://seerr.drscottslab.com" target="_blank">Open Plex Seerr</a>
-      </div>
-      <div class="card">
-        <h2>Downloads</h2>
-        <p>Access the shared download folder.</p>
-        <a href="https://gofile.me/75KEu/FEOEeaoVx" target="_blank">
-        <button>Open Downloads</button>
-        </a>
-      </div>    
-    </div>
-  </div>
+<h1>Welcome To The Lab</h1>
+<p class="subtitle">Links to cool shit.</p>
+
+<div class="grid">
+
+<div class="card">
+<h2>Plex Seerr</h2>
+<p>Link your Plex watchlist to Seerr.</p>
+<a class="button" href="https://seerr.drscottslab.com" target="_blank">Open Plex Seerr</a>
+</div>
+
+<div class="card">
+<h2>YouTube Downloads</h2>
+<p>Download videos or access finished files.</p>
+
+<div class="dual-buttons">
+<a class="button half" href="https://metube.drscottslab.com/" target="_blank">Downloader</a>
+<a class="button half" href="https://gofile.me/75KEu/FEOEeaoVx" target="_blank">Files</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
