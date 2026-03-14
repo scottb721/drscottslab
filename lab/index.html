@@ -16,7 +16,9 @@ body {
   background-image:url("images/lab_bg.jpg");
   background-size:cover;
   background-position:center;
+  background-repeat:no-repeat;
   background-attachment:fixed;
+  min-height:100vh;
 }
 
 .container{
@@ -95,6 +97,22 @@ h1{
 
 .back:hover{
   background:rgba(255,255,255,0.25);
+}
+
+@media (max-width:768px){
+  body{
+    background-image:url("images/lab_mobile_bg.jpg");
+    background-position:center top;
+    background-attachment:scroll;
+  }
+
+  .container{
+    padding:20px 16px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
 }
 
 </style>
