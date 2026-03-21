@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saturn V Diorama Build | Dr Scott's Lab</title>
+<title>Saturn V Diorama | Dr Scott's Lab</title>
 
 <style>
 
@@ -12,29 +12,24 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   color:white;
   text-align:center;
-
   background-image:url("images/hero.webp");
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
 }
 
-/* dark overlay */
 body::before{
   content:"";
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(5,10,20,0.75);
+  inset:0;
+  background:rgba(5,10,20,0.78);
   z-index:-1;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1050px;
   margin:auto;
-  padding:30px 20px;
+  padding:30px 20px 50px;
 }
 
 .back{
@@ -49,41 +44,85 @@ body::before{
   color:white;
 }
 
+.hero{
+  padding:20px 0 10px;
+}
+
 h1{
-  font-size:38px;
-  margin-bottom:10px;
+  font-size:40px;
+  margin:0 0 10px;
 }
 
 .subtitle{
-  font-size:16px;
-  opacity:0.8;
-  margin-bottom:30px;
+  max-width:760px;
+  margin:0 auto 30px;
+  font-size:17px;
+  line-height:1.5;
+  opacity:0.88;
 }
 
-/* sections */
-
 .section{
-  margin:40px 0;
+  margin:42px 0;
 }
 
 .section h2{
-  margin-bottom:10px;
-  font-size:22px;
+  margin-bottom:14px;
+  font-size:24px;
 }
 
-/* cards (buttons) */
+.panel{
+  background:rgba(20,28,42,0.45);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:22px;
+  text-align:left;
+}
+
+.panel p{
+  margin:0;
+  line-height:1.6;
+  color:rgba(255,255,255,0.92);
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+}
+
+.feature-card{
+  background:rgba(30,40,60,0.5);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:16px;
+  text-align:left;
+}
+
+.feature-card h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.feature-card p{
+  margin:0;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+}
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:15px;
-  margin-top:20px;
+  margin-top:18px;
 }
 
 .card{
   display:block;
-  padding:15px;
-  border-radius:12px;
+  padding:16px;
+  border-radius:14px;
   text-decoration:none;
   color:white;
   background:rgba(30,40,60,0.5);
@@ -97,18 +136,85 @@ h1{
   background:rgba(40,60,90,0.7);
 }
 
-/* gallery */
+.card-title{
+  display:block;
+  font-size:16px;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.card-text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+}
+
+.video-wrap{
+  max-width:320px;
+  margin:20px auto 0;
+}
+
+.video-frame{
+  position:relative;
+  padding-bottom:177%;
+  height:0;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(0,0,0,0.25);
+}
+
+.video-frame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
 
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:15px;
-  margin-top:20px;
+  margin-top:18px;
 }
 
 .gallery img{
   width:100%;
-  border-radius:12px;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.note{
+  margin-top:14px;
+  font-size:14px;
+  opacity:0.72;
+}
+
+@media (max-width:768px){
+  body{
+    background-attachment:scroll;
+  }
+
+  h1{
+    font-size:32px;
+  }
+
+  .subtitle{
+    font-size:16px;
+  }
+
+  .container{
+    padding:24px 16px 40px;
+  }
+
+  .gallery img{
+    height:200px;
+  }
 }
 
 </style>
@@ -118,71 +224,103 @@ h1{
 
 <div class="container">
 
-<a href="/lab/projects/" class="back">← Back to Projects</a>
+  <a href="/lab/projects/" class="back">← Back to Projects</a>
 
-<h1>Saturn V Diorama Build</h1>
-
-<div class="subtitle">
-A custom Lego Saturn V diorama build featuring lighting, fog, audio, motion and automated effects.
-</div>
-
-<!-- Overview -->
-<div class="section">
-  <h2>Overview</h2>
-  <p>
-    This build brings the Saturn V to life as a display diorama, combining custom electronics,
-    lighting effects, fog, sound, and motion. The system is driven by Arduino and integrates
-    with Home Assistant and WLED to create an automated launch sequence experience.
-  </p>
-</div>
-
-<!-- Features -->
-<div class="section">
-  <h2>Features</h2>
-  <p>
-    Lighting effects, fog generation, countdown audio, motorised elements, Home Assistant control,
-    and WLED-driven LED sequences.
-  </p>
-</div>
-
-<!-- Video -->
-<div class="section">
-  <h2>Watch It</h2>
-
-  <div style="max-width:350px; margin:20px auto;">
-    <div style="position:relative; padding-bottom:177%; height:0; overflow:hidden; border-radius:12px;">
-      <iframe 
-        src="https://www.youtube.com/embed/msoKSiRo25Q" 
-        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
-        allowfullscreen>
-      </iframe>
+  <div class="hero">
+    <h1>Saturn V Diorama</h1>
+    <div class="subtitle">
+      A custom Lego Saturn V diorama build featuring lighting, fog, audio, motion and automated effects.
     </div>
   </div>
-</div>
 
-<!-- Resources -->
-<div class="section">
-  <h2>Build Resources</h2>
-
-  <div class="grid">
-    <a href="arduino.html" class="card">Arduino Code</a>
-    <a href="home-assistant.html" class="card">Home Assistant</a>
-    <a href="wled-presets.html" class="card">WLED Presets</a>
-    <a href="parts.html" class="card">Parts List</a>
+  <div class="section">
+    <h2>Overview</h2>
+    <div class="panel">
+      <p>
+        This project started as a Lego Saturn V display and evolved into a fully animated diorama with custom electronics and smart control.
+        It combines lighting, fog, audio, motion and automation to turn a static display into a launch-themed showpiece.
+        The core control is handled by Arduino, with Home Assistant and WLED used for triggering, sequencing and integration.
+      </p>
+    </div>
   </div>
-</div>
 
-<!-- Gallery -->
-<div class="section">
-  <h2>Gallery</h2>
-
-  <div class="gallery">
-    <img src="images/build-01.jpg">
-    <img src="images/build-02.jpg">
-    <img src="images/build-03.jpg">
-    <img src="images/build-04.jpg">
+  <div class="section">
+    <h2>What It Does</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Lighting Effects</h3>
+        <p>Custom lighting throughout the diorama for launch ambience and sequence effects.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fog / Mist</h3>
+        <p>Atmospheric fog effects to help sell the launch pad scene.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Audio</h3>
+        <p>Countdown and launch-themed sound playback tied into the build sequence.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Motion</h3>
+        <p>Motorised movement to add life and mechanical action to the display.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Arduino Control</h3>
+        <p>Main device logic for timing, outputs, sound and hardware coordination.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Home Assistant + WLED</h3>
+        <p>Smart triggering, automation and addressable LED effects integration.</p>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="section">
+    <h2>Watch It</h2>
+    <div class="video-wrap">
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/msoKSiRo25Q"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    <div class="note">Demo short of the Saturn V diorama in action.</div>
+  </div>
+
+  <div class="section">
+    <h2>Build Resources</h2>
+    <div class="grid">
+      <a href="code/arduino/SaturnV_Final.ino" class="card">
+        <span class="card-title">Arduino Code</span>
+        <span class="card-text">Main Arduino sketch used to run the diorama hardware and sequence logic.</span>
+      </a>
+
+      <a href="home-assistant.html" class="card">
+        <span class="card-title">Home Assistant</span>
+        <span class="card-text">Automation logic, triggers and smart-home integration for the build.</span>
+      </a>
+
+      <a href="wled-presets.html" class="card">
+        <span class="card-title">WLED Presets</span>
+        <span class="card-text">Preset and effect configuration for the LED elements in the display.</span>
+      </a>
+
+      <a href="parts.html" class="card">
+        <span class="card-title">Parts List</span>
+        <span class="card-text">Main hardware, modules and build components used in the project.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/build-01.jpg" alt="Saturn V diorama photo 1">
+      <img src="images/build-02.jpg" alt="Saturn V diorama photo 2">
+      <img src="images/build-03.jpg" alt="Saturn V diorama photo 3">
+      <img src="images/build-04.jpg" alt="Saturn V diorama photo 4">
+    </div>
+  </div>
 
 </div>
 
